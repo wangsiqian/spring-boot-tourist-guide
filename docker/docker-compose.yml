@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  spring_boot_tourist_guide:
+    restart: always
+    build: ../
+    ports:
+      - 8088:8080
+    volumes:
+      - ../:/opt/app
+    command: sleep 999999999
+
+  elasticsearch:
+    image: elasticsearch:6.6.1
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - http.host=0.0.0.0
+      - http.port=9200
+      - http.cors.allow-origin=*
+      - http.cors.enabled=true
+      - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      - http.cors.allow-credentials=true
+      - transport.host=127.0.0.1
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms750m -Xmx750m
+
+  dejavu:
+    image: appbaseio/dejavu
+    ports:
+      - "1358:1358"
+
+  mirage:
+    image: appbaseio/mirage
+    ports:
+      - "3030:3030"
