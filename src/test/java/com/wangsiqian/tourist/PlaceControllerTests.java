@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-public class PlaceControllerTests extends TouristGuidTests {
+public class PlaceControllerTests extends TouristGuideTests {
     @Autowired PlaceRepository placeRepository;
 
     @Test(timeout = 10000)
@@ -40,8 +40,8 @@ public class PlaceControllerTests extends TouristGuidTests {
         assertThat(place, notNullValue());
         assertThat(place.getName(), equalTo("老君阁"));
         assertThat(place.getAddress(), equalTo("都江堰市西南部青城山风景区"));
-        assertThat(place.getLocation().getX(), equalTo(30.914196));
-        assertThat(place.getLocation().getY(), equalTo(103.567074));
+        assertThat(place.getLocation().getLat(), equalTo(30.914196));
+        assertThat(place.getLocation().getLon(), equalTo(103.567074));
         assertThat(place.getDescription(), equalTo("青城山自古素有“青城天下幽”的美誉，分前山和后山两部分"));
     }
 }

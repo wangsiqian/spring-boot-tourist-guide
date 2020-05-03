@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class PlaceApplicationServiceImpl implements PlaceApplicationService {
-    private final ElasticsearchOperations elasticsearchOperations;
+    private final PlaceRepository placeRepository;
     private final PlaceFactory placeFactory;
 
     @Override
@@ -26,12 +26,7 @@ public class PlaceApplicationServiceImpl implements PlaceApplicationService {
         Place place = placeFactory.create(createPlaceDTO);
 
         // 存储到 ES
-        IndexQuery indexQuery =
-                new IndexQueryBuilder()
-                        .withId(place.getPlaceId())
-                        .withObject(place)
-                        .build();
-        elasticsearchOperations.index(indexQuery);
+        placeRepository.index(place);
         log.info("Created place[{}].", place);
 
         return CommonResult.okResponse(place.getPlaceId());
