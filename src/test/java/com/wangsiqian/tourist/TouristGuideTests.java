@@ -12,7 +12,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class TouristGuidTests {
+class TouristGuideTests {
     @Autowired public WebApplicationContext webApplicationContext;
     public Client client;
 

@@ -3,6 +3,7 @@ package com.wangsiqian.tourist.common.filter;
 import com.wangsiqian.tourist.common.utils.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +22,7 @@ import static com.wangsiqian.tourist.common.constant.JwtConstant.AUTHORIZATION_H
 /** @author wangsiqian */
 @Slf4j
 public class AuthenticationFilter extends OncePerRequestFilter {
+    @Qualifier("org.springframework.security.userDetailsService")
     @Autowired private UserDetailsService userDetailsService;
     @Autowired private JwtUtils jwtUtils;
 

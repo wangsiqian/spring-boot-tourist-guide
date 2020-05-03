@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /** @author wangsiqian */
 @SpringBootApplication
-public class TouristGuidApplication {
+public class TouristGuideApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TouristGuidApplication.class, args);
+        SpringApplication.run(TouristGuideApplication.class, args);
     }
 }
