@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: maven:3.6.3-jdk-8
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Run lint
+        run: |
+          mvn pmd:check
