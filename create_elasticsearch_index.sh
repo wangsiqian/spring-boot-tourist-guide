@@ -1,7 +1,7 @@
 #!/bin/bash
 
 curl --request PUT \
-     --url 'http://localhost:9200/place' \
+     --url 'http://127.0.0.1:9200/place' \
      --header "Content-Type: application/json" \
      --data '{
                "mappings": {

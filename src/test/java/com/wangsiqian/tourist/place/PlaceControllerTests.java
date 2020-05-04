@@ -1,5 +1,6 @@
-package com.wangsiqian.tourist;
+package com.wangsiqian.tourist.place;
 
+import com.wangsiqian.tourist.TouristGuideTests;
 import com.wangsiqian.tourist.place.dto.CreatePlaceDTO;
 import com.wangsiqian.tourist.place.model.Place;
 import com.wangsiqian.tourist.place.repository.PlaceRepository;
@@ -43,5 +44,10 @@ public class PlaceControllerTests extends TouristGuideTests {
         assertThat(place.getLocation().getLat(), equalTo(30.914196));
         assertThat(place.getLocation().getLon(), equalTo(103.567074));
         assertThat(place.getDescription(), equalTo("青城山自古素有“青城天下幽”的美誉，分前山和后山两部分"));
+    }
+
+    @Test(timeout = 10000)
+    public void listNearbyPlacesTest() {
+
     }
 }

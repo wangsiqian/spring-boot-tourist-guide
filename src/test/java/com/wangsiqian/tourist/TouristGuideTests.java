@@ -1,5 +1,6 @@
 package com.wangsiqian.tourist;
 
+import com.wangsiqian.tourist.utils.Client;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 
@@ -10,9 +11,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
+
 @RunWith(SpringRunner.class)
-@SpringBootTest
-class TouristGuideTests {
+@SpringBootTest(webEnvironment = RANDOM_PORT)
+public abstract class TouristGuideTests {
     @Autowired public WebApplicationContext webApplicationContext;
     public Client client;
 

@@ -3,7 +3,11 @@ server:
 
 spring:
   profiles:
-    active: dev
+    active: docker
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
 
 logging:
   pattern:
@@ -13,10 +17,18 @@ logging:
   level:
     root: ERROR
     org.springframework.web: ERROR
-    com.wangsiqian.template: DEBUG
+    com.wangsiqian.tourist: DEBUG
 
-template:
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "env", "beans", "info"]
+
+tourist:
     admin:
       role: "admin"
       username: "wangsiqian"
       password: "wangsiqian"
+    elasticsearch:
+      hostAndPort: "elasticsearch:9200"

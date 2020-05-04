@@ -1,4 +1,4 @@
-package com.wangsiqian.tourist;
+package com.wangsiqian.tourist.utils;
 
 import com.alibaba.fastjson.JSONObject;
 
