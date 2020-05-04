@@ -45,9 +45,4 @@ public class PlaceControllerTests extends TouristGuideTests {
         assertThat(place.getLocation().getLon(), equalTo(103.567074));
         assertThat(place.getDescription(), equalTo("青城山自古素有“青城天下幽”的美誉，分前山和后山两部分"));
     }
-
-    @Test(timeout = 10000)
-    public void listNearbyPlacesTest() {
-
-    }
 }
