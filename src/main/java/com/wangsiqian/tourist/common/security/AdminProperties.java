@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 /** @author wangsiqian */
 @Data
 @Validated
-@ConfigurationProperties("template.admin")
+@ConfigurationProperties("tourist.admin")
 public class AdminProperties {
     @NotBlank private String username;
     @NotBlank private String password;

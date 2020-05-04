@@ -4,4 +4,4 @@ tourist:
     username: "wangsiqian"
     password: "wangsiqian"
   elasticsearch:
-    hostAndPort: "elasticsearch:9200"
+    hostAndPort: "localhost:9200"

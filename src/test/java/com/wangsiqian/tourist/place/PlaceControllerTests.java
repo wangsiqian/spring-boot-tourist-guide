@@ -1,5 +1,6 @@
-package com.wangsiqian.tourist;
+package com.wangsiqian.tourist.place;
 
+import com.wangsiqian.tourist.TouristGuideTests;
 import com.wangsiqian.tourist.place.dto.CreatePlaceDTO;
 import com.wangsiqian.tourist.place.model.Place;
 import com.wangsiqian.tourist.place.repository.PlaceRepository;

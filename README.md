@@ -14,3 +14,11 @@
 
 ### 3. 添加文档
 暂使用swagger自动添加文档
+
+## Overview
+
+语言导游项目，前端定位用户地址获取附近的景点，返回图片、音频、景点介绍等数据
+
+- Web 框架：SpringBoot
+- 搜索引擎：Elasticsearch
+- 代码检测：p3c
