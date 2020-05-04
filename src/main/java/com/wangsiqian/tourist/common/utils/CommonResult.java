@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.wangsiqian.tourist.common.exception.ApiException;
 import lombok.Getter;
 import lombok.ToString;
+import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -54,8 +55,7 @@ public class CommonResult<T> {
     }
 
     public static CommonResult<List<JSONObject>> validationErrorResponse(
-            MethodArgumentNotValidException error) {
-        BindingResult bindingResult = error.getBindingResult();
+            BindingResult bindingResult) {
         List<FieldError> fieldErrors = bindingResult.getFieldErrors();
 
         List<JSONObject> errors = new ArrayList<>();
