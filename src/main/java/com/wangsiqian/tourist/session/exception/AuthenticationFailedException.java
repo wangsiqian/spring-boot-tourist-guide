@@ -1,4 +1,4 @@
-package com.wangsiqian.tourist.auth.exception;
+package com.wangsiqian.tourist.session.exception;
 
 import com.wangsiqian.tourist.common.exception.ApiException;
 

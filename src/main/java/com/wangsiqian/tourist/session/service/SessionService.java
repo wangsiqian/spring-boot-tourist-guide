@@ -1,10 +1,10 @@
-package com.wangsiqian.tourist.auth.service;
+package com.wangsiqian.tourist.session.service;
 
-import com.wangsiqian.tourist.auth.dto.LoginDTO;
+import com.wangsiqian.tourist.session.dto.LoginDTO;
 import com.wangsiqian.tourist.common.utils.CommonResult;
 
 /** @author wangsiqian */
-public interface UserActionService {
+public interface SessionService {
     /**
      * 后台登陆接口
      *

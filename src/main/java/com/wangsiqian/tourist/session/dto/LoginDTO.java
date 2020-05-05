@@ -1,4 +1,4 @@
-package com.wangsiqian.tourist.auth.dto;
+package com.wangsiqian.tourist.session.dto;
 
 import lombok.Getter;
 import lombok.Setter;
