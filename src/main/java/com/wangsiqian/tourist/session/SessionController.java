@@ -1,7 +1,7 @@
-package com.wangsiqian.tourist.auth;
+package com.wangsiqian.tourist.session;
 
-import com.wangsiqian.tourist.auth.dto.LoginDTO;
-import com.wangsiqian.tourist.auth.service.impl.UserActionServiceImpl;
+import com.wangsiqian.tourist.session.dto.LoginDTO;
+import com.wangsiqian.tourist.session.service.impl.SessionServiceImpl;
 import com.wangsiqian.tourist.common.utils.CommonResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1")
 @RequiredArgsConstructor
-public class UserActionController {
-    private final UserActionServiceImpl userActionService;
+public class SessionController {
+    private final SessionServiceImpl userActionService;
 
     @PostMapping("/login")
     public CommonResult<String> login(@RequestBody @Validated LoginDTO loginDTO) {
