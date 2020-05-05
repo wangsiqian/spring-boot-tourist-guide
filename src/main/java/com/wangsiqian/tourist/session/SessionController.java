@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1")
 @RequiredArgsConstructor
 public class SessionController {
-    private final SessionServiceImpl userActionService;
+    private final SessionServiceImpl sessionService;
 
     @PostMapping("/login")
     public CommonResult<String> login(@RequestBody @Validated LoginDTO loginDTO) {
-        return userActionService.login(loginDTO);
+        return sessionService.login(loginDTO);
     }
 }

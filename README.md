@@ -1,5 +1,7 @@
 # spring-boot-tourist-guide
 
+[![Build Status](https://travis-ci.org/michaelliao/openweixin.svg?branch=master)](https://travis-ci.org/michaelliao/openweixin)
+
 ## api 开发流程
 
 ### 1. 测试
