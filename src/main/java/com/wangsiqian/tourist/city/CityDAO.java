@@ -1,9 +1,12 @@
-package com.wangsiqian.tourist.city.dao;
+package com.wangsiqian.tourist.city;
 
+import com.wangsiqian.tourist.city.representation.CityVO;
 import com.wangsiqian.tourist.city.model.City;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.ArrayList;
 
 /** @author wangsiqian */
 @Mapper
@@ -22,4 +25,11 @@ public interface CityDAO {
      * @return 城市实例
      */
     City getCityById(@Param("cityId") String cityId);
+
+    /**
+     * 列出所有城市（暂时不用分页）
+     *
+     * @return 城市集
+     */
+    ArrayList<CityVO> listCities();
 }

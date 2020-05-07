@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /** @author wangsiqian */
-@Api("城市API")
+@Api("城市 ADMIN API")
 @RestController
 @RequestMapping("/admin/city")
 @RequiredArgsConstructor

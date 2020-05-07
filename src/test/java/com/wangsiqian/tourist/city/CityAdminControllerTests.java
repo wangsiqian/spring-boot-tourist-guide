@@ -1,7 +1,6 @@
 package com.wangsiqian.tourist.city;
 
 import com.wangsiqian.tourist.TouristGuideTests;
-import com.wangsiqian.tourist.city.dao.CityDAO;
 import com.wangsiqian.tourist.city.dto.CreateCityDTO;
 import com.wangsiqian.tourist.city.model.City;
 import com.wangsiqian.tourist.common.security.AdminProperties;
