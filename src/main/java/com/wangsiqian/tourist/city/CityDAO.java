@@ -27,6 +27,14 @@ public interface CityDAO {
     City getCityById(@Param("cityId") String cityId);
 
     /**
+     * 通过城市名查找
+     *
+     * @param name 城市名
+     * @return 城市
+     */
+    City getCityByName(@Param("name") String name);
+
+    /**
      * 列出所有城市（暂时不用分页）
      *
      * @return 城市集

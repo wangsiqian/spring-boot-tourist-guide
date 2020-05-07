@@ -19,6 +19,12 @@
         WHERE city_id = #{cityId}
     </select>
 
+    <select id="getCityByName" resultMap="city">
+        SELECT city_id, name
+        FROM city
+        WHERE name = #{name}
+    </select>
+
     <insert id="createCity" parameterType="com.wangsiqian.tourist.city.model.City">
         INSERT INTO city(city_id, name, created_at, updated_at)
         VALUES (#{city.cityId, jdbcType=CHAR},

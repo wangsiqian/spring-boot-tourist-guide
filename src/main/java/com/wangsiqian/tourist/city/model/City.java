@@ -1,6 +1,7 @@
 package com.wangsiqian.tourist.city.model;
 
 import com.wangsiqian.tourist.city.dto.CreateCityDTO;
+import com.wangsiqian.tourist.city.representation.CityVO;
 import lombok.*;
 import lombok.experimental.Tolerate;
 
@@ -24,5 +25,14 @@ public class City {
                 .createdAt(new Date())
                 .updatedAt(new Date())
                 .build();
+    }
+
+    public CityVO toRepresentation() {
+        // 转化为展示层对象
+        CityVO cityVO = new CityVO();
+        cityVO.setCityId(cityId);
+        cityVO.setName(name);
+
+        return cityVO;
     }
 }
