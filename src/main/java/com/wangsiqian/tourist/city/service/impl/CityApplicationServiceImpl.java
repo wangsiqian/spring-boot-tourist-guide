@@ -1,6 +1,6 @@
 package com.wangsiqian.tourist.city.service.impl;
 
-import com.wangsiqian.tourist.city.dao.CityDAO;
+import com.wangsiqian.tourist.city.CityDAO;
 import com.wangsiqian.tourist.city.dto.CreateCityDTO;
 import com.wangsiqian.tourist.city.exception.CityAlreadyExistException;
 import com.wangsiqian.tourist.city.model.CityFactory;
