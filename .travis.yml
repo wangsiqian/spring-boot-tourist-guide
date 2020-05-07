@@ -5,11 +5,14 @@ jdk:
 
 services:
   - elasticsearch
+  - mysql
 
 before_install:
   - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.6.1.deb && sudo dpkg -i --force-confnew elasticsearch-6.6.1.deb && sudo service elasticsearch restart
+  - sudo mysql -e "CREATE DATABASE IF NOT EXISTS tourist DEFAULT CHARACTER SET utf8;"
 
 before_script:
+  # 等待 elasticsearch 启动
   - sleep 10
 
 script:

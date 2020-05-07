@@ -1,5 +1,8 @@
 #!/bin/bash
 
+curl --request DELETE \
+     --url 'http://127.0.0.1:9200/place/'
+
 curl --request PUT \
      --url 'http://127.0.0.1:9200/place' \
      --header "Content-Type: application/json" \

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangsiqian.tourist.city.dao.CityDAO">
+    <resultMap id="city" type="com.wangsiqian.tourist.city.model.City">
+        <result column="city_id" property="cityId"/>
+        <result column="name" property="name"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="getCityById" resultMap="city">
+        SELECT city_id, name
+        FROM city
+        WHERE city_id=#{cityId}
+    </select>
+
+    <insert id="createCity" parameterType="com.wangsiqian.tourist.city.model.City">
+        INSERT INTO city(city_id, name, created_at, updated_at)
+        VALUES (
+            #{city.cityId, jdbcType=CHAR},
+            #{city.name, jdbcType=VARCHAR},
+            #{city.createdAt, jdbcType=TIMESTAMP},
+            #{city.updatedAt, jdbcType=TIMESTAMP})
+    </insert>
+</mapper>
