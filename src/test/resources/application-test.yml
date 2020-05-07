@@ -1,3 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:mysql://mysql:3306/tourist?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password:
+    schema: classpath*:mysql/db_schema.sql
+    continue-on-error: true
+    initialization-mode: always
+    sql-script-encoding: utf-8
+
 tourist:
   admin:
     role: "admin"

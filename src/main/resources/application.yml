@@ -8,6 +8,17 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
+  datasource:
+    url: jdbc:mysql://mysql:3306/tourist?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password:
+  banner:
+    image:
+      location: classpath*:banner.txt
+
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
 
 logging:
   pattern:
@@ -26,9 +37,9 @@ management:
         include: ["health", "env", "beans", "info"]
 
 tourist:
-    admin:
-      role: "admin"
-      username: "wangsiqian"
-      password: "wangsiqian"
-    elasticsearch:
-      hostAndPort: "elasticsearch:9200"
+  admin:
+    role: "admin"
+    username: "wangsiqian"
+    password: "wangsiqian"
+  elasticsearch:
+    hostAndPort: "elasticsearch:9200"

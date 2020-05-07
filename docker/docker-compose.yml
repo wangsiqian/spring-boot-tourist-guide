@@ -10,6 +10,19 @@ services:
       - ../:/opt/app
     command: sleep 999999999
 
+  mysql:
+    image: mysql:5.7
+    restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - ./db_schema.sql:/docker-entrypoint-initdb.d/db_schema.sql
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=tourist
+    ports:
+      - 3307:3306
+
   elasticsearch:
     image: elasticsearch:6.6.1
     ports:

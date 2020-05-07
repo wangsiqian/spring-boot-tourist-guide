@@ -32,7 +32,7 @@ public class ExceptionsHandler {
 
     @ExceptionHandler
     public CommonResult<String> handleException(Exception exception) {
-        log.error(exception.getClass().getName());
+        log.error(exception.getMessage());
         return CommonResult.falseResponse();
     }
 
