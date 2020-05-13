@@ -44,4 +44,11 @@ public class PlaceController {
             @Valid ListPlacesByPointDTO listPlacesByPointDTO) {
         return representationService.listPlacesByPoint(listPlacesByPointDTO);
     }
+
+    @GetMapping("/city/{cityId}")
+    @ApiOperation("根据城市ID列出景点")
+    public CommonResult<List<PlaceRepresentation>> listPlacesByCityId(
+            @PathVariable("cityId") String cityId) {
+        return representationService.listPlacesByCityId(cityId);
+    }
 }

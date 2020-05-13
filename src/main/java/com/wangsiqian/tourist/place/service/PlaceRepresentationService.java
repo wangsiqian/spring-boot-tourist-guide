@@ -26,4 +26,12 @@ public interface PlaceRepresentationService {
      */
     CommonResult<List<PlaceRepresentation>> listPlacesByPoint(
             ListPlacesByPointDTO listPlacesByPointDTO);
+
+    /**
+     * 根据城市ID列出所有景点
+     *
+     * @param cityId 城市ID
+     * @return 查询结果
+     */
+    CommonResult<List<PlaceRepresentation>> listPlacesByCityId(String cityId);
 }
