@@ -9,6 +9,15 @@ import java.util.List;
 
 /** @author wangsiqian */
 public interface PlaceRepresentationService {
+
+    /**
+     * 根据景点ID查询景点
+     *
+     * @param placeId 景点ID
+     * @return 查询结果
+     */
+    CommonResult<PlaceRepresentation> getPlaceByPlaceId(String placeId);
+
     /**
      * 列出附近的景点
      *

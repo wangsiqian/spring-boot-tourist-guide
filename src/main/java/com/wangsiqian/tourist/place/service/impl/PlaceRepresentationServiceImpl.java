@@ -6,6 +6,7 @@ import com.wangsiqian.tourist.city.service.CityRepresentationService;
 import com.wangsiqian.tourist.common.utils.CommonResult;
 import com.wangsiqian.tourist.place.dto.ListNearByPlacesDTO;
 import com.wangsiqian.tourist.place.dto.ListPlacesByPointDTO;
+import com.wangsiqian.tourist.place.exception.PlaceNotFoundException;
 import com.wangsiqian.tourist.place.model.Place;
 import com.wangsiqian.tourist.place.repository.PlaceRepository;
 import com.wangsiqian.tourist.place.representation.PlaceRepresentation;
@@ -29,6 +30,16 @@ public class PlaceRepresentationServiceImpl implements PlaceRepresentationServic
     private final PlaceRepository placeRepository;
     private final CityRepresentationService cityRepresentationService;
     private final CityDAO cityDAO;
+
+    @Override
+    public CommonResult<PlaceRepresentation> getPlaceByPlaceId(String placeId) {
+        Place place = placeRepository.findById(placeId).orElse(null);
+        if (place == null) {
+            throw new PlaceNotFoundException();
+        }
+
+        return CommonResult.okResponse(place.toRepresentation());
+    }
 
     @Override
     public CommonResult<List<PlaceRepresentation>> listNearbyPlaces(
