@@ -1,5 +1,7 @@
 package com.wangsiqian.tourist.place.service.impl;
 
+import com.wangsiqian.tourist.city.CityDAO;
+import com.wangsiqian.tourist.city.exception.CityNotFoundException;
 import com.wangsiqian.tourist.city.service.CityRepresentationService;
 import com.wangsiqian.tourist.common.utils.CommonResult;
 import com.wangsiqian.tourist.place.dto.ListNearByPlacesDTO;
@@ -26,6 +28,7 @@ import java.util.stream.Collectors;
 public class PlaceRepresentationServiceImpl implements PlaceRepresentationService {
     private final PlaceRepository placeRepository;
     private final CityRepresentationService cityRepresentationService;
+    private final CityDAO cityDAO;
 
     @Override
     public CommonResult<List<PlaceRepresentation>> listNearbyPlaces(
@@ -63,6 +66,18 @@ public class PlaceRepresentationServiceImpl implements PlaceRepresentationServic
                         .getCityId();
 
         // 转化为展示模型
+        return CommonResult.okResponse(
+                placeRepository.findByCityId(cityId).stream()
+                        .map(Place::toRepresentation)
+                        .collect(Collectors.toList()));
+    }
+
+    @Override
+    public CommonResult<List<PlaceRepresentation>> listPlacesByCityId(String cityId) {
+        if (cityDAO.getCityById(cityId) == null) {
+            throw new CityNotFoundException();
+        }
+
         return CommonResult.okResponse(
                 placeRepository.findByCityId(cityId).stream()
                         .map(Place::toRepresentation)
