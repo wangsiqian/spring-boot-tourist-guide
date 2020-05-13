@@ -25,6 +25,13 @@ public class PlaceController {
     private final PlaceApplicationService applicationService;
     private final PlaceRepresentationService representationService;
 
+    @GetMapping("/{placeId}")
+    @ApiOperation("通过景点ID获取景点")
+    public CommonResult<PlaceRepresentation> getPlaceByPlaceId(
+            @PathVariable("placeId") String placeId) {
+        return representationService.getPlaceByPlaceId(placeId);
+    }
+
     @PostMapping
     @ApiOperation("添加景点（后续改成 admin 接口）")
     public CommonResult<String> createPlace(@RequestBody @Validated CreatePlaceDTO createPlaceDTO) {
