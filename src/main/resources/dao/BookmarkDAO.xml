@@ -10,6 +10,13 @@
         <result column="updated_at" property="updatedAt"/>
     </resultMap>
 
+    <resultMap id="bookmarkVO" type="com.wangsiqian.tourist.bookmark.representation.BookmarkVO">
+        <result column="place_id" property="placeId"/>
+        <result column="place_name" property="placeName"/>
+        <result column="cover_url" property="coverUrl"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
     <insert id="createBookmark" parameterType="com.wangsiqian.tourist.bookmark.model.Bookmark">
         INSERT INTO bookmark(user_id, place_id, place_name, cover_url, created_at, updated_at)
         VALUES (#{bookmark.userId, jdbcType=VARCHAR},
@@ -25,5 +32,11 @@
         from bookmark
         where user_id = #{userId, jdbcType=VARCHAR}
           and place_id = #{placeId, jdbcType=VARCHAR}
+    </select>
+
+    <select id="listBookmarksByUserId" resultMap="bookmarkVO">
+        select place_id, place_name, cover_url, created_at
+        from bookmark
+        where user_id = #{userId, jdbcType=VARCHAR}
     </select>
 </mapper>
