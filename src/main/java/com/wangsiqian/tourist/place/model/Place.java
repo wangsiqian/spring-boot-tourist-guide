@@ -1,6 +1,7 @@
 package com.wangsiqian.tourist.place.model;
 
 import com.wangsiqian.tourist.place.dto.CreatePlaceDTO;
+import com.wangsiqian.tourist.place.representation.PlaceIdAndNameVO;
 import com.wangsiqian.tourist.place.representation.PlaceRepresentation;
 import lombok.Builder;
 import lombok.Getter;
@@ -79,6 +80,13 @@ public class Place {
                 .cityId(cityId)
                 .images(images)
                 .location(location)
+                .build();
+    }
+
+    public PlaceIdAndNameVO remainIdAndName() {
+        return PlaceIdAndNameVO.builder()
+                .placeId(placeId)
+                .name(name)
                 .build();
     }
 }

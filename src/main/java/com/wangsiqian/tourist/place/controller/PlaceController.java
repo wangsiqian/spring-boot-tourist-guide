@@ -4,6 +4,7 @@ import com.wangsiqian.tourist.common.utils.CommonResult;
 import com.wangsiqian.tourist.place.dto.CreatePlaceDTO;
 import com.wangsiqian.tourist.place.dto.ListNearByPlacesDTO;
 import com.wangsiqian.tourist.place.dto.ListPlacesByPointDTO;
+import com.wangsiqian.tourist.place.representation.PlaceIdAndNameVO;
 import com.wangsiqian.tourist.place.representation.PlaceRepresentation;
 import com.wangsiqian.tourist.place.service.PlaceApplicationService;
 import com.wangsiqian.tourist.place.service.PlaceRepresentationService;
@@ -14,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /** @author wangsiqian */
@@ -57,5 +59,12 @@ public class PlaceController {
     public CommonResult<List<PlaceRepresentation>> listPlacesByCityId(
             @PathVariable("cityId") String cityId) {
         return representationService.listPlacesByCityId(cityId);
+    }
+
+    @GetMapping
+    @ApiOperation("根据模糊名列出景点")
+    public CommonResult<List<PlaceIdAndNameVO>> listPlacesIdAndNameByKeyword(
+            @RequestParam @NotNull String keyword) {
+        return representationService.listPlacesIdAndNameByKeyword(keyword);
     }
 }

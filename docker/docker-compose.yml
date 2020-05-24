@@ -37,7 +37,6 @@ services:
       - http.cors.allow-credentials=true
       - transport.host=127.0.0.1
       - xpack.security.enabled=false
-      - ES_JAVA_OPTS=-Xms750m -Xmx750m
 
   dejavu:
     image: appbaseio/dejavu
