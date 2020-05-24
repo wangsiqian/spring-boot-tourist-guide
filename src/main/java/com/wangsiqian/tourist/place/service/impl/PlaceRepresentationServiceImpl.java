@@ -9,6 +9,7 @@ import com.wangsiqian.tourist.place.dto.ListPlacesByPointDTO;
 import com.wangsiqian.tourist.place.exception.PlaceNotFoundException;
 import com.wangsiqian.tourist.place.model.Place;
 import com.wangsiqian.tourist.place.repository.PlaceRepository;
+import com.wangsiqian.tourist.place.representation.PlaceIdAndNameVO;
 import com.wangsiqian.tourist.place.representation.PlaceRepresentation;
 import com.wangsiqian.tourist.place.service.PlaceRepresentationService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.elasticsearch.common.unit.DistanceUnit;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.GeoDistanceQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.stereotype.Service;
 
@@ -93,5 +95,14 @@ public class PlaceRepresentationServiceImpl implements PlaceRepresentationServic
                 placeRepository.findByCityId(cityId).stream()
                         .map(Place::toRepresentation)
                         .collect(Collectors.toList()));
+    }
+
+    @Override
+    public CommonResult<List<PlaceIdAndNameVO>> listPlacesIdAndNameByKeyword(String keyword) {
+        // 展示 5 个相近名字的景点
+        List<Place> places = placeRepository.findByNameLike(keyword, PageRequest.of(0, 5));
+
+        return CommonResult.okResponse(
+                places.stream().map(Place::remainIdAndName).collect(Collectors.toList()));
     }
 }
