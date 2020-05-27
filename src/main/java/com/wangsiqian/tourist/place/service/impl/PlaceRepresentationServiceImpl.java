@@ -52,7 +52,7 @@ public class PlaceRepresentationServiceImpl implements PlaceRepresentationServic
                         .point(
                                 listNearByPlacesDTO.getLatitude(),
                                 listNearByPlacesDTO.getLongitude())
-                        .distance(listNearByPlacesDTO.getDistance(), DistanceUnit.MILES);
+                        .distance(listNearByPlacesDTO.getDistance(), DistanceUnit.METERS);
 
         BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
         boolQueryBuilder.filter(locationFilter);
