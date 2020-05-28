@@ -5,6 +5,7 @@ import com.wangsiqian.tourist.place.dto.CreatePlaceDTO;
 import com.wangsiqian.tourist.place.dto.ListNearByPlacesDTO;
 import com.wangsiqian.tourist.place.dto.ListPlacesByPointDTO;
 import com.wangsiqian.tourist.place.representation.PlaceIdAndNameVO;
+import com.wangsiqian.tourist.place.representation.PlaceIntroductionVO;
 import com.wangsiqian.tourist.place.representation.PlaceRepresentation;
 import com.wangsiqian.tourist.place.service.PlaceApplicationService;
 import com.wangsiqian.tourist.place.service.PlaceRepresentationService;
@@ -61,10 +62,17 @@ public class PlaceController {
         return representationService.listPlacesBySightId(sightId);
     }
 
-    @GetMapping
-    @ApiOperation("根据模糊名列出景点")
+    @GetMapping("/name")
+    @ApiOperation("根据模糊名列出景点ID和名字")
     public CommonResult<List<PlaceIdAndNameVO>> listPlacesIdAndNameByKeyword(
             @RequestParam @NotNull String keyword) {
         return representationService.listPlacesIdAndNameByKeyword(keyword);
+    }
+
+    @GetMapping("/introduction")
+    @ApiOperation("根据模糊名列出相关景点介绍")
+    public CommonResult<List<PlaceIntroductionVO>> listPlacesIntroductionByKeyword(
+            @RequestParam @NotNull String keyword) {
+        return representationService.listPlacesIntroductionByKeyword(keyword);
     }
 }

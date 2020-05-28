@@ -8,6 +8,7 @@ import com.wangsiqian.tourist.place.exception.PlaceNotFoundException;
 import com.wangsiqian.tourist.place.model.Place;
 import com.wangsiqian.tourist.place.repository.PlaceRepository;
 import com.wangsiqian.tourist.place.representation.PlaceIdAndNameVO;
+import com.wangsiqian.tourist.place.representation.PlaceIntroductionVO;
 import com.wangsiqian.tourist.place.representation.PlaceRepresentation;
 import com.wangsiqian.tourist.place.service.PlaceRepresentationService;
 import lombok.RequiredArgsConstructor;
@@ -97,5 +98,13 @@ public class PlaceRepresentationServiceImpl implements PlaceRepresentationServic
 
         return CommonResult.okResponse(
                 places.stream().map(Place::remainIdAndName).collect(Collectors.toList()));
+    }
+
+    @Override
+    public CommonResult<List<PlaceIntroductionVO>> listPlacesIntroductionByKeyword(String keyword) {
+        // 展示 20 个带有简短介绍的景点
+        List<Place> places = placeRepository.findByNameLike(keyword, PageRequest.of(0, 20));
+        return CommonResult.okResponse(
+                places.stream().map(Place::toIntroduction).collect(Collectors.toList()));
     }
 }

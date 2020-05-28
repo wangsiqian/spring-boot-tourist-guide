@@ -3,6 +3,7 @@ package com.wangsiqian.tourist.place.service;
 import com.wangsiqian.tourist.common.utils.CommonResult;
 import com.wangsiqian.tourist.place.dto.ListPlacesByPointDTO;
 import com.wangsiqian.tourist.place.representation.PlaceIdAndNameVO;
+import com.wangsiqian.tourist.place.representation.PlaceIntroductionVO;
 import com.wangsiqian.tourist.place.representation.PlaceRepresentation;
 import com.wangsiqian.tourist.place.dto.ListNearByPlacesDTO;
 
@@ -52,4 +53,12 @@ public interface PlaceRepresentationService {
      * @return 查询结果
      */
     CommonResult<List<PlaceIdAndNameVO>> listPlacesIdAndNameByKeyword(String keyword);
+
+    /**
+     * 通过关键字模糊查询景点
+     *
+     * @param keyword 关键字
+     * @return 查询结果
+     */
+    CommonResult<List<PlaceIntroductionVO>> listPlacesIntroductionByKeyword(String keyword);
 }

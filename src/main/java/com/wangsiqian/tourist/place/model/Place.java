@@ -2,6 +2,7 @@ package com.wangsiqian.tourist.place.model;
 
 import com.wangsiqian.tourist.place.dto.CreatePlaceDTO;
 import com.wangsiqian.tourist.place.representation.PlaceIdAndNameVO;
+import com.wangsiqian.tourist.place.representation.PlaceIntroductionVO;
 import com.wangsiqian.tourist.place.representation.PlaceRepresentation;
 import lombok.Builder;
 import lombok.Getter;
@@ -84,9 +85,20 @@ public class Place {
     }
 
     public PlaceIdAndNameVO remainIdAndName() {
-        return PlaceIdAndNameVO.builder()
+        return PlaceIdAndNameVO.builder().placeId(placeId).name(name).build();
+    }
+
+    public PlaceIntroductionVO toIntroduction() {
+        String image = "";
+        if (images.size() != 0) {
+            image = images.get(0);
+        }
+
+        return PlaceIntroductionVO.builder()
                 .placeId(placeId)
                 .name(name)
+                .image(image)
+                .description(description)
                 .build();
     }
 }
