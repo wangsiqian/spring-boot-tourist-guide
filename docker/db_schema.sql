@@ -34,3 +34,15 @@ CREATE TABLE comment
     UNIQUE KEY uk_comment_id (comment_id),
     INDEX idx_place_id (place_id)
 ) ENGINE = InnoDB COMMENT = '评论表';
+
+CREATE TABLE sight
+(
+    id         bigint       NOT NULL AUTO_INCREMENT COMMENT '景区ID',
+    name       VARCHAR(36)  NOT NULL COMMENT '景区名',
+    cover_url  VARCHAR(255) NOT NULL COMMENT '景区封面URL',
+    city_id    CHAR(5)      NOT NULL COMMENT '所属城市ID',
+    created_at timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    updated_at timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (id),
+    UNIQUE KEY uk_sight_id (city_id, name)
+) ENGINE = InnoDB COMMENT = '景区'
