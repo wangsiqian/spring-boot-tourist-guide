@@ -1,7 +1,6 @@
 package com.wangsiqian.tourist.place;
 
 import com.wangsiqian.tourist.TouristGuideTests;
-import com.wangsiqian.tourist.city.CityDAO;
 import com.wangsiqian.tourist.city.dto.CreateCityDTO;
 import com.wangsiqian.tourist.city.service.CityApplicationService;
 import com.wangsiqian.tourist.place.dto.CreatePlaceDTO;
@@ -32,7 +31,7 @@ public class PlaceControllerTests extends TouristGuideTests {
     public void createPlaceTest() throws Exception {
         CreatePlaceDTO createPlaceDTO =
                 CreatePlaceDTO.builder()
-                        .cityId("704547")
+                        .sightId("704547")
                         .name("老君阁")
                         .images(Arrays.asList("https://www.baidu.com/", "https://www.google.com/"))
                         .audio("https://www.baidu.com/")
@@ -68,7 +67,7 @@ public class PlaceControllerTests extends TouristGuideTests {
 
         CreatePlaceDTO createPlaceDTO =
                 CreatePlaceDTO.builder()
-                        .cityId("00001")
+                        .sightId("00001")
                         .name("老君阁")
                         .images(Arrays.asList("https://www.baidu.com/", "https://www.google.com/"))
                         .audio("https://www.baidu.com/")
@@ -105,7 +104,7 @@ public class PlaceControllerTests extends TouristGuideTests {
 
         CreatePlaceDTO createPlaceDTO =
                 CreatePlaceDTO.builder()
-                        .cityId("00001")
+                        .sightId("00001")
                         .name("天安门")
                         .images(Arrays.asList("https://www.baidu.com/", "https://www.google.com/"))
                         .audio("https://www.baidu.com/")
