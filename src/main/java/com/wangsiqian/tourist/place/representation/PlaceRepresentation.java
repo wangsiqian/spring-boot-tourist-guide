@@ -19,7 +19,7 @@ public class PlaceRepresentation {
     private String address;
     private String description;
     private String audio;
-    private String cityId;
+    private String sightId;
     private List<String> images;
     private GeoPoint location;
 }

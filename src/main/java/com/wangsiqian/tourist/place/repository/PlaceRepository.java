@@ -9,15 +9,16 @@ import java.util.List;
 /** @author wangsiqian */
 public interface PlaceRepository extends ElasticsearchRepository<Place, String> {
     /**
-     * 通过城市ID 获取景点
+     * 通过景区ID 获取景点
      *
-     * @param cityId 城市ID
+     * @param sightId 景区ID
      * @return 获取结果
      */
-    List<Place> findByCityId(String cityId);
+    List<Place> findBySightId(String sightId);
 
     /**
      * 通过景点名模糊查询
+     *
      * @param name 景点名
      * @param pageable 分页
      * @return 查询结果

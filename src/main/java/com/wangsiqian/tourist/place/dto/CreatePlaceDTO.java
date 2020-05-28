@@ -20,7 +20,7 @@ public class CreatePlaceDTO {
     @NotBlank private String address;
     @NotBlank private String description;
     @NotBlank private String audio;
-    @NotNull private String cityId;
+    @NotNull private String sightId;
     @NotNull private List<String> images;
 
     @Range(min = 20, max = 50, message = "目前仅支持中国境内的景点")

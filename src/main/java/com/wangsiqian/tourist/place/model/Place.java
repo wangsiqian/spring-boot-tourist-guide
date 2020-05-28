@@ -42,7 +42,7 @@ public class Place {
     private String audio;
 
     @Field(type = FieldType.Keyword)
-    private String cityId;
+    private String sightId;
 
     @Field(type = FieldType.Nested)
     private List<String> images;
@@ -59,7 +59,7 @@ public class Place {
         return Place.builder()
                 .placeId(UUID.randomUUID().toString())
                 .name(createPlaceDTO.getName())
-                .cityId(createPlaceDTO.getCityId())
+                .sightId(createPlaceDTO.getSightId())
                 .description(createPlaceDTO.getDescription())
                 .address(createPlaceDTO.getAddress())
                 .audio(createPlaceDTO.getAudio())
@@ -77,7 +77,7 @@ public class Place {
                 .address(address)
                 .description(description)
                 .audio(audio)
-                .cityId(cityId)
+                .sightId(sightId)
                 .images(images)
                 .location(location)
                 .build();

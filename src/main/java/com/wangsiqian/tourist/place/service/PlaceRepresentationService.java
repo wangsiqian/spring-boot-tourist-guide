@@ -43,7 +43,7 @@ public interface PlaceRepresentationService {
      * @param cityId 城市ID
      * @return 查询结果
      */
-    CommonResult<List<PlaceRepresentation>> listPlacesByCityId(String cityId);
+    CommonResult<List<PlaceRepresentation>> listPlacesBySightId(String cityId);
 
     /**
      * 通过关键字模糊查询景点ID和名称
