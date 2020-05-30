@@ -33,4 +33,12 @@ public interface BookmarkDAO {
      * @return 获取结果
      */
     ArrayList<BookmarkVO> listBookmarksByUserId(@Param("userId") String userId);
+
+    /**
+     * 统计用户的收藏数据
+     *
+     * @param userId 用户ID
+     * @return 统计结果
+     */
+    Integer countBookmarkByUserId(@Param("userId") String userId);
 }
