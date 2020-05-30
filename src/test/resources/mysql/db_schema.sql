@@ -45,4 +45,15 @@ CREATE TABLE sight
     updated_at timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     PRIMARY KEY (id),
     UNIQUE KEY uk_sight_id (city_id, name)
-) ENGINE = InnoDB COMMENT = '景区'
+) ENGINE = InnoDB COMMENT = '景区';
+
+CREATE TABLE upload_record
+(
+    id         bigint       NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    user_id    varchar(28)  NOT NULL COMMENT '用户ID',
+    image_path varchar(255) NOT NULL COMMENT '图片存放路径',
+    created_at timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    updated_at timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (id),
+    UNIQUE KEY uk_record_id (user_id, image_path)
+) ENGINE = InnoDB COMMENT = '用户图片上传记录';

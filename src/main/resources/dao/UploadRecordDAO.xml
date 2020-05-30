@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangsiqian.tourist.upload.UploadRecordDAO">
+    <insert id="createRecord" parameterType="com.wangsiqian.tourist.upload.model.UploadRecord">
+        INSERT INTO upload_record(user_id, image_path, created_at, updated_at)
+        VALUES (#{record.userId, jdbcType=VARCHAR},
+                #{record.imagePath, jdbcType=VARCHAR},
+                #{record.createdAt, jdbcType=TIMESTAMP},
+                #{record.updatedAt, jdbcType=TIMESTAMP})
+    </insert>
+
+    <select id="getRecordByUserIdAndPath" resultType="java.lang.Integer">
+        SELECT id
+        from upload_record
+        WHERE user_id = #{userId}
+          AND image_path = #{imagePath}
+    </select>
+</mapper>
