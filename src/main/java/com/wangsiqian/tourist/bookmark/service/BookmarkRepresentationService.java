@@ -13,5 +13,5 @@ public interface BookmarkRepresentationService {
      * @param userId 用户ID
      * @return 查询结果
      */
-    public CommonResult<List<BookmarkVO>> listBookmarksByUserId(String userId);
+    CommonResult<List<BookmarkVO>> listBookmarksByUserId(String userId);
 }

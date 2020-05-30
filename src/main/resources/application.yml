@@ -15,6 +15,10 @@ spring:
   banner:
     image:
       location: classpath*:banner.txt
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 
 mybatis:
   mapper-locations:
@@ -43,3 +47,5 @@ tourist:
     password: "wangsiqian"
   elasticsearch:
     hostAndPort: "elasticsearch:9200"
+  file:
+    imagePath: "/tourist/images/"
