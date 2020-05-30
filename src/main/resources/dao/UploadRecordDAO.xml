@@ -15,4 +15,10 @@
         WHERE user_id = #{userId}
           AND image_path = #{imagePath}
     </select>
+
+    <select id="countImageByUserId" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM upload_record
+        WHERE user_id = #{userId}
+    </select>
 </mapper>

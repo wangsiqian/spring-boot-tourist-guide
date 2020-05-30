@@ -23,4 +23,12 @@ public interface UploadRecordDAO {
      */
     Integer getRecordByUserIdAndPath(
             @Param("userId") String userId, @Param("imagePath") String imagePath);
+
+    /**
+     * 统计用户图片上传记录
+     *
+     * @param userId 用户Id
+     * @return 统计数据
+     */
+    Integer countImageByUserId(@Param("userId") String userId);
 }
