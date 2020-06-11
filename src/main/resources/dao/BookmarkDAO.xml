@@ -45,4 +45,11 @@
         FROM bookmark
         WHERE user_id = #{userId}
     </select>
+
+    <delete id="deleteBookmarkById">
+        DELETE
+        FROM bookmark
+        WHERE user_id = #{userId}
+          AND place_id = #{placeId}
+    </delete>
 </mapper>

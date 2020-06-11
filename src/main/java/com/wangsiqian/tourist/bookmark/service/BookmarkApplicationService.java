@@ -11,5 +11,14 @@ public interface BookmarkApplicationService {
      * @param createBookmarkDTO 数据载体
      * @return 创建结果
      */
-    public CommonResult<String> createBookmark(CreateBookmarkDTO createBookmarkDTO);
+    CommonResult<String> createBookmark(CreateBookmarkDTO createBookmarkDTO);
+
+    /**
+     * 通过用户id 和景点id 删除书签
+     *
+     * @param placeId 景点 id
+     * @param userId 用户 id
+     * @return 删除结果
+     */
+    CommonResult<String> deleteBookmarkById(String userId, String placeId);
 }

@@ -31,7 +31,14 @@ public class BookmarkController {
 
     @ApiOperation("根据用户ID列出景点")
     @GetMapping("/{userId}")
-    public CommonResult<List<BookmarkVO>> list(@PathVariable(name = "userId") String userId) {
+    public CommonResult<List<BookmarkVO>> listBookmarksByUserId(
+            @PathVariable(name = "userId") String userId) {
         return representationService.listBookmarksByUserId(userId);
+    }
+
+    @DeleteMapping("/{userId}/place/{placeId}")
+    public CommonResult<String> deleteBookmarkById(
+            @PathVariable String userId, @PathVariable String placeId) {
+        return applicationService.deleteBookmarkById(userId, placeId);
     }
 }

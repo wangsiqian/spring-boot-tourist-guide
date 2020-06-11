@@ -3,6 +3,7 @@ package com.wangsiqian.tourist.bookmark.service.impl;
 import com.wangsiqian.tourist.bookmark.BookmarkDAO;
 import com.wangsiqian.tourist.bookmark.dto.CreateBookmarkDTO;
 import com.wangsiqian.tourist.bookmark.exception.BookmarkAlreadyExistException;
+import com.wangsiqian.tourist.bookmark.exception.BookmarkNotFoundException;
 import com.wangsiqian.tourist.bookmark.model.Bookmark;
 import com.wangsiqian.tourist.bookmark.model.BookmarkFactory;
 import com.wangsiqian.tourist.bookmark.service.BookmarkApplicationService;
@@ -30,6 +31,17 @@ public class BookmarkApplicationServiceImpl implements BookmarkApplicationServic
 
         Bookmark bookmark = bookmarkFactory.create(createBookmarkDTO);
         bookmarkDAO.createBookmark(bookmark);
+        return CommonResult.okResponse();
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public CommonResult<String> deleteBookmarkById(String userId, String placeId) {
+        if (bookmarkDAO.getBookmarkById(userId, placeId) == null) {
+            throw new BookmarkNotFoundException();
+        }
+
+        bookmarkDAO.deleteBookmarkById(userId, placeId);
         return CommonResult.okResponse();
     }
 }
