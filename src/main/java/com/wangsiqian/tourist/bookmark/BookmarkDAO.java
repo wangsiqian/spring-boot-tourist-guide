@@ -41,4 +41,12 @@ public interface BookmarkDAO {
      * @return 统计结果
      */
     Integer countBookmarkByUserId(@Param("userId") String userId);
+
+    /**
+     * 通过用户id 和景点id 删除书签
+     *
+     * @param placeId 景点 id
+     * @param userId 用户 id
+     */
+    void deleteBookmarkById(@Param("userId") String userId, @Param("placeId") String placeId);
 }
