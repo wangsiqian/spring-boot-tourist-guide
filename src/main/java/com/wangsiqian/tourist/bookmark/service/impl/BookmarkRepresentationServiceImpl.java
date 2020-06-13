@@ -1,7 +1,6 @@
 package com.wangsiqian.tourist.bookmark.service.impl;
 
 import com.wangsiqian.tourist.bookmark.BookmarkDAO;
-import com.wangsiqian.tourist.bookmark.dto.CreateBookmarkDTO;
 import com.wangsiqian.tourist.bookmark.exception.BookmarkNotFoundException;
 import com.wangsiqian.tourist.bookmark.model.Bookmark;
 import com.wangsiqian.tourist.bookmark.representation.BookmarkVO;
@@ -10,7 +9,6 @@ import com.wangsiqian.tourist.common.utils.CommonResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /** @author wangsiqian */
@@ -25,12 +23,14 @@ public class BookmarkRepresentationServiceImpl implements BookmarkRepresentation
     }
 
     @Override
-    public CommonResult<BookmarkVO> getBookmarkById(String userId, String placeId) {
+    public CommonResult<Boolean> getBookmarkStatus(String userId, String placeId) {
         Bookmark bookmark = bookmarkDAO.getBookmarkById(userId, placeId);
+        boolean result = true;
         if (bookmark == null) {
-            throw new BookmarkNotFoundException();
+            // 不存在
+            result = false;
         }
 
-        return CommonResult.okResponse(bookmark.toRepresentation());
+        return CommonResult.okResponse(result);
     }
 }
