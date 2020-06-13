@@ -41,4 +41,10 @@ public class BookmarkController {
             @PathVariable String userId, @PathVariable String placeId) {
         return applicationService.deleteBookmarkById(userId, placeId);
     }
+
+    @GetMapping("/{userId}/place/{placeId}/status")
+    public CommonResult<Boolean> getBookmarkById(
+            @PathVariable String userId, @PathVariable String placeId) {
+        return representationService.getBookmarkStatus(userId, placeId);
+    }
 }
