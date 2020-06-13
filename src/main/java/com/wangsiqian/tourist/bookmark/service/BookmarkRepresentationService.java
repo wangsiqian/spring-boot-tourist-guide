@@ -14,4 +14,13 @@ public interface BookmarkRepresentationService {
      * @return 查询结果
      */
     CommonResult<List<BookmarkVO>> listBookmarksByUserId(String userId);
+
+    /**
+     * 通过用户id 和 景点id 获取收藏
+     *
+     * @param userId 用户 id
+     * @param placeId 景点 id
+     * @return 收藏结果
+     */
+    CommonResult<BookmarkVO> getBookmarkById(String userId, String placeId);
 }
